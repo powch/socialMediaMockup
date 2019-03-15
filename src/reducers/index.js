@@ -1,10 +1,11 @@
 import { ADD_MESSAGE, LIKES_UP, DISLIKES_UP } from '../constants/action-types';
+import moment from 'moment';
 
 const initialState = {
   messages: [{
     displayName: 'Charles Powell',
     message: 'Welcome to Chatter! Press "Add Message" to begin Chattering!',
-    time: 'now',
+    time: moment().format('h:m a'),
     likes: 0,
     dislikes: 0
   }]
