@@ -1,11 +1,25 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+import { Container } from 'reactstrap';
+import MessageCard from '../../components/MessageCard';
 
-const Timeline = props => {
+const mapStateToProps = state => {
+  return { messages: state.messages };
+};
+
+const Timeline = ({ messages }) => {
   return (
-    <div>
-      <h1>Timeline</h1>
-    </div>
+    <Container>
+      {messages.map(message =>(
+        <MessageCard 
+          displayName={message.displayName}
+          message={message.message}
+        />
+      ))}
+    </Container>
   )
 }
 
-export default Timeline;
+const ConnectedTimeline = connect(mapStateToProps)(Timeline);
+
+export default ConnectedTimeline;
