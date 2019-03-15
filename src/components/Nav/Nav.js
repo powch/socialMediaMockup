@@ -5,11 +5,14 @@ const NavTemplate = props => {
   return (
     <Navbar color='light' className='mb-3'>
       <Container>
-        <NavbarBrand href='/'>Chatter</NavbarBrand>
+        <NavbarBrand>Chatter</NavbarBrand>
 
         <Nav pills className='ml-auto'>
           <NavItem>
-            <NavLink active href='/message'>Add Message</NavLink>
+            <NavLink 
+              active
+              onClick={() => props.handlePageRender('AddMessage')}
+            >Add Message</NavLink>
           </NavItem>
         </Nav>
       </Container>

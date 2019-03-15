@@ -1,7 +1,10 @@
 import { ADD_MESSAGE } from '../constants/action-types';
 
 const initialState = {
-  messages: []
+  messages: [{
+    displayName: 'Foo',
+    message: 'Welcome to Chatter! Press "Add Message" to begin Chattering!'
+  }]
 };
 function rootReducer(state = initialState, action) {
   switch (action.type) {

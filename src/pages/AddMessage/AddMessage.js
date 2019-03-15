@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
-import { Container, Form } from 'reactstrap';
+import { connect } from 'react-redux';
+import addMessage from '../../actions/index';
+import { Container, Form, Button } from 'reactstrap';
 import { FormInput, FormTextArea } from '../../components/Form/'
+
+function mapDispatchToProps(dispatch) {
+  return{
+    addMessage: message => dispatch(addMessage(message))
+  };
+}
 
 class AddMessage extends Component {
 
@@ -14,6 +22,13 @@ class AddMessage extends Component {
     this.setState({
       [name]: value
     });
+  }
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    const { displayName, message } = this.state;
+    this.props.addMessage({ displayName, message });
+    this.props.handlePageRender('Timeline');
   }
 
   render() {
@@ -36,11 +51,18 @@ class AddMessage extends Component {
             value={this.state.message}
             placeholder='Enter a message'
             handleInputChange={this.handleInputChange}
-          />  
+          />
+
+          <Button
+            type='submit'
+            onClick={this.handleFormSubmit}
+          >Submit</Button>
         </Form>
       </Container>
     )
   }
 }
 
-export default AddMessage;
+const ConnectedAddMessage = connect(null, mapDispatchToProps)(AddMessage);
+
+export default ConnectedAddMessage;

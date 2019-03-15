@@ -3,7 +3,9 @@ import { Card, CardTitle, CardBody } from 'reactstrap';
 
 const MessageCard = props => {
   return (
-    <Card body outline color='secondary'>
+    <Card
+    body outline color='secondary'
+    >
       <CardTitle>{props.displayName}</CardTitle>
       <CardBody>{props.message}</CardBody>
     </Card>

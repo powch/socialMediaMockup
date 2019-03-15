@@ -10,8 +10,9 @@ const mapStateToProps = state => {
 const Timeline = ({ messages }) => {
   return (
     <Container>
-      {messages.map(message =>(
-        <MessageCard 
+      {messages.map((message, idx) =>(
+        <MessageCard
+          key={idx} 
           displayName={message.displayName}
           message={message.message}
         />
