@@ -2,7 +2,7 @@ import { ADD_MESSAGE } from '../constants/action-types';
 
 const initialState = {
   messages: [{
-    displayName: 'Foo',
+    displayName: 'Charles Powell',
     message: 'Welcome to Chatter! Press "Add Message" to begin Chattering!'
   }]
 };
