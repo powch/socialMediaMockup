@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import addMessage from '../../actions/index';
+import addMessage from '../../actions/addMessage';
 import { Container, Form, Button } from 'reactstrap';
-import { FormInput, FormTextArea } from '../../components/Form/'
+import { FormInput, FormTextArea } from '../../components/Form/';
+import moment from 'moment';
 import './AddMessage.css';
 
-function mapDispatchToProps(dispatch) {
-  return{
+const mapDispatchToProps = dispatch => {
+  return {
     addMessage: message => dispatch(addMessage(message))
   };
-}
+};
 
 class AddMessage extends Component {
 
@@ -28,7 +29,10 @@ class AddMessage extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { displayName, message } = this.state;
-    this.props.addMessage({ displayName, message });
+    const time = moment().format('h:m a');
+    const likes = 0,
+          dislikes = 0;
+    this.props.addMessage({ displayName, message, time, likes, dislikes });
     this.props.handlePageRender('Timeline');
   }
 
@@ -58,7 +62,7 @@ class AddMessage extends Component {
             className='SubmitButton'
             type='submit'
             onClick={this.handleFormSubmit}
-          >Submit</Button>
+          >Submit Post</Button>
         </Form>
       </Container>
     )
