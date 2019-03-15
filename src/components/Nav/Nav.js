@@ -3,17 +3,17 @@ import { Container, Navbar, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap
 
 const NavTemplate = props => {
   return (
-    <Container>
-      <Navbar>
-        <NavbarBrand>Chatter</NavbarBrand>
+    <Navbar color='light' className='mb-3'>
+      <Container>
+        <NavbarBrand href='/'>Chatter</NavbarBrand>
 
         <Nav pills className='ml-auto'>
           <NavItem>
-            <NavLink active>Add Message</NavLink>
+            <NavLink active href='/message'>Add Message</NavLink>
           </NavItem>
         </Nav>
-      </Navbar>
-    </Container>
+      </Container>
+    </Navbar>
   )
 }
 
