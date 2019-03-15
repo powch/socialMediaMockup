@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import addMessage from '../../actions/index';
 import { Container, Form, Button } from 'reactstrap';
 import { FormInput, FormTextArea } from '../../components/Form/'
+import './AddMessage.css';
 
 function mapDispatchToProps(dispatch) {
   return{
@@ -34,7 +35,7 @@ class AddMessage extends Component {
   render() {
     return (
       <Container>
-        <h3>Add a Chat</h3>
+        <h3>Add some Chatter</h3>
         <hr />
         <Form>
           <FormInput
@@ -54,6 +55,7 @@ class AddMessage extends Component {
           />
 
           <Button
+            className='SubmitButton'
             type='submit'
             onClick={this.handleFormSubmit}
           >Submit</Button>

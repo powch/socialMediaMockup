@@ -1,0 +1,22 @@
+.Nav{
+  background-color: #859797;
+}
+
+.navbar-brand{
+  color: #DEE0D5
+}
+
+.Button{
+  background-color: #D84E13;
+  transition: 0.25s;
+}
+
+.Button:hover{
+  background-color: rgb(216, 127, 89);
+}
+
+.Logo{
+  height: 2rem;
+  width: 3rem;
+  margin-right: 8%;
+}

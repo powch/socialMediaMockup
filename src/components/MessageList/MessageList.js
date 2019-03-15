@@ -1,12 +1,15 @@
 import React from 'react';
-import { ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
+import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
 
 const MessageList = props => {
   return (
-    <ListGroupItem>
-      <ListGroupItemHeading>{props.displayName}</ListGroupItemHeading>
-      <ListGroupItemText>{props.message}</ListGroupItemText>
-    </ListGroupItem>
+    <ListGroup className="mb-3">
+      <ListGroupItem>
+        <ListGroupItemHeading>{props.displayName}</ListGroupItemHeading>
+        <hr />
+        <ListGroupItemText>{props.message}</ListGroupItemText>
+      </ListGroupItem>
+    </ListGroup>
   );
 }
 

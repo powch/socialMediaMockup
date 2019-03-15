@@ -1,23 +1,30 @@
 import React from 'react';
 import { Container, Navbar, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
+import logo from './fox.png';
+import './Nav.css';
 
 const NavTemplate = props => {
   return (
-    <Navbar color='light' className='mb-3'>
+    <Navbar className="mb-5 Nav">
       <Container>
-        <NavbarBrand>Chatter</NavbarBrand>
+        <NavbarBrand>
+          <img src={logo} alt="Fox Logo" className="Logo" />
+          Chatter
+        </NavbarBrand>
 
-        <Nav pills className='ml-auto'>
+        <Nav pills className="ml-auto">
           <NavItem>
-            <NavLink 
-              active
+            <NavLink
               onClick={() => props.handlePageRender('AddMessage')}
-            >Add Message</NavLink>
+              className="Button text-white"
+            >
+              Add Message
+            </NavLink>
           </NavItem>
         </Nav>
       </Container>
     </Navbar>
-  )
+  );
 }
 
 export default NavTemplate;
