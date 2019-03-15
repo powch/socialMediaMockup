@@ -16,23 +16,25 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         messages: state.messages.concat(action.payload)
-      }
+      };
 
+    //If index is equal to the id of the component the event happens, update likes + 1
     case LIKES_UP:
       return {
         ...state,
         messages: state.messages.map((message, idx) => {
-          if ( idx !== action.id ) {
+          if (idx !== action.id) {
             return message;
           }
 
           return {
             ...message,
             likes: message.likes + action.value
-          }
+          };
         })
-      }
+      };
 
+    //If index is equal to the id of the component the event happens, update dislikes + 1
     case DISLIKES_UP:
       return {
         ...state,
@@ -44,10 +46,10 @@ function rootReducer(state = initialState, action) {
           return {
             ...message,
             dislikes: message.dislikes + action.value
-          }
+          };
         })
-      }
-  
+      };
+
     default:
       return state;
   }
