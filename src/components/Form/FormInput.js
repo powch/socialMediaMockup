@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroup, FormText, Label, Input } from 'reactstrap';
+import { FormGroup, Label, Input } from 'reactstrap';
 
 export const FormInput = props => {
   return (
@@ -10,7 +10,6 @@ export const FormInput = props => {
         placeholder={props.placeholder}
         onChange={props.handleInputChange}
       />
-      <FormText>{props.helpText}</FormText>
     </FormGroup>
   )
 }

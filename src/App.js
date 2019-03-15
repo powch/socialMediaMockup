@@ -17,7 +17,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Nav handlePageRender={this.handlePageRender} />
+        <Nav 
+          handlePageRender={this.handlePageRender} 
+          pageRendered={this.state.renderPage}
+        />
         {this.state.renderPage === 'Timeline' ? (
           <Timeline />
         ) : (

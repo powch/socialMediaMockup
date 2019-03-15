@@ -19,6 +19,7 @@ class AddMessage extends Component {
     message: ''
   }
 
+  // Takes name and value from whatever input fired the event and updates the respective state
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -26,6 +27,7 @@ class AddMessage extends Component {
     });
   }
 
+  // Builds a new message object from the state and other variables. Moment.js is used for timestamping posts.
   handleFormSubmit = event => {
     event.preventDefault();
     const { displayName, message } = this.state;

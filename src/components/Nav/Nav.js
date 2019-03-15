@@ -7,19 +7,25 @@ const NavTemplate = props => {
   return (
     <Navbar className="mb-5 Nav">
       <Container>
-        <NavbarBrand>
+        <NavbarBrand
+          onClick={() => props.handlePageRender('Timeline')}
+        >
           <img src={logo} alt="Fox Logo" className="Logo" />
           Chatter
         </NavbarBrand>
 
         <Nav pills className="ml-auto">
           <NavItem>
-            <NavLink
-              onClick={() => props.handlePageRender('AddMessage')}
-              className="Button text-white"
-            >
-              Add Message
+            {
+              (props.pageRendered === 'AddMessage')
+                ? null
+                : <NavLink
+                  onClick={() => props.handlePageRender('AddMessage')}
+                  className="Button text-white"
+                  >
+                  Add Message
             </NavLink>
+            }
           </NavItem>
         </Nav>
       </Container>
