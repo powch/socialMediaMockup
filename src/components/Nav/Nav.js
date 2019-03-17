@@ -13,7 +13,7 @@ const NavTemplate = props => {
           <img src={logo} alt="Fox Logo" className="Logo" />
           Chatter
         </NavbarBrand>
-        
+
         {
           (props.displayName !== null)
             ? <Nav pills>
@@ -22,7 +22,7 @@ const NavTemplate = props => {
                     onClick={() => props.handlePageRender('AddMessage')}
                     className="Button text-white"
                   >
-                    Add Message
+                    Add Chat
                   </NavLink>
                 </NavItem> 
                 <NavItem>
