@@ -19,6 +19,13 @@ class AddMessage extends Component {
     message: ''
   }
 
+  // Sets display name to component state on mount if signed in.
+  componentWillMount = () => {
+    if (this.props.displayName) {
+      this.setState({ displayName: this.props.displayName });
+    }
+  }
+
   // Takes name and value from whatever input fired the event and updates the respective state
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -34,37 +41,59 @@ class AddMessage extends Component {
     const time = moment().format('h:mm a');
     const likes = 0,
           dislikes = 0;
-    this.props.addMessage({ displayName, message, time, likes, dislikes });
+    // Does a local sign-in if not already.
+    if (!this.props.displayName) {
+      this.props.doAddDisplayName(displayName);
+    }
+    // Creates new message payload and sends to reducer.
+    this.props.addMessage({ 
+      displayName, 
+      message, 
+      time, 
+      likes, 
+      dislikes 
+    });
+    // Redirects to timeline after submit.
     this.props.handlePageRender('Timeline');
   }
 
   render() {
+
+    // Submit button is disabled if truthy
+    const isInvalid = this.state.message.length === 0 || 
+                      this.state.displayName.length === 0;
+
     return (
       <Container>
         <h3>Add some Chatter</h3>
         <hr />
-        <Form>
-          <FormInput
-            label='Display Name'
-            name='displayName'
-            value={this.state.displayName}
-            placeholder='Enter a display name for this message'
-            handleInputChange={this.handleInputChange}
-          />
+        <Form onSubmit={this.handleFormSubmit}>
+          {/* Shows input for display name if not logged in */}
+          {
+            (this.props.displayName)
+              ? null
+              : <FormInput
+                  label='Display Name'
+                  name='displayName'
+                  value={this.state.displayName}
+                  placeholder='Enter a display name for this and following messages'
+                  handleInputChange={this.handleInputChange}
+                />
+          }
 
           <FormTextArea 
             label='Message'
             name='message'
             value={this.state.message}
-            placeholder='Enter a message'
+            placeholder='Enter a Chat'
             handleInputChange={this.handleInputChange}
           />
 
           <Button
             className='SubmitButton'
             type='submit'
-            onClick={this.handleFormSubmit}
-          >Submit Post</Button>
+            disabled={isInvalid}
+          >Submit Chat</Button>
         </Form>
       </Container>
     )
