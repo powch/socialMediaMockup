@@ -21,19 +21,22 @@ const Timeline = ({ messages, likesUp, dislikesUp }) => {
     <Container>
       <h3>Timeline</h3>
       <hr />
+      {/* Map messages from redux to MessageList component */}
       {messages.map((message, idx) => (
-        <MessageList
-          key={idx}
-          id={idx}
-          displayName={message.displayName}
-          message={message.message}
-          time={message.time}
-          likes={message.likes}
-          likesUp={likesUp}
-          dislikes={message.dislikes}
-          dislikesUp={dislikesUp}
-        />
-      ))}
+          <MessageList
+            key={idx}
+            id={idx}
+            displayName={message.displayName}
+            message={message.message}
+            time={message.time}
+            likes={message.likes}
+            likesUp={likesUp}
+            dislikes={message.dislikes}
+            dislikesUp={dislikesUp}
+          />
+      ))
+        // Reverse mapped array to act more inline with Twitter's "newest tweet first" display.
+        .reverse()}
     </Container>
   )
 }

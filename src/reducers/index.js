@@ -5,8 +5,8 @@ const initialState = {
   messages: [{
     displayName: 'Charles Powell',
     message: 'Welcome to Chatter! Press "Add Message" to begin Chattering!',
-    time: moment().format('h:m a'),
-    likes: 0,
+    time: moment().format('h:mm a'),
+    likes: 1,
     dislikes: 0
   }]
 };

@@ -31,7 +31,7 @@ class AddMessage extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     const { displayName, message } = this.state;
-    const time = moment().format('h:m a');
+    const time = moment().format('h:mm a');
     const likes = 0,
           dislikes = 0;
     this.props.addMessage({ displayName, message, time, likes, dislikes });
