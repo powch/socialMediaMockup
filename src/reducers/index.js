@@ -4,7 +4,7 @@ import moment from 'moment';
 const initialState = {
   messages: [{
     displayName: 'Charles Powell',
-    message: 'Welcome to Chatter! Press "Add Message" to begin Chattering!',
+    message: 'Welcome to Chatter! Press "Add Chat" to begin Chattering! Chosen display names will persist until signed out.',
     time: moment().format('h:mm a'),
     likes: 1,
     dislikes: 0

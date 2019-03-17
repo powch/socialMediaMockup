@@ -40,7 +40,7 @@ const NavTemplate = props => {
                     onClick={() => props.handlePageRender('AddMessage')}
                     className="Button text-white"
                   >
-                    Add Message
+                    Add Chat
                   </NavLink>
                 </NavItem>
               </Nav>
