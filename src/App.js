@@ -5,8 +5,17 @@ import AddMessage from './pages/AddMessage';
 
 class App extends Component {
   state = {
-    renderPage: 'Timeline'
+    renderPage: 'Timeline',
+    displayName: null
   };
+
+  doAddDisplayName = name => {
+    this.setState({ displayName: name });
+  }
+
+  doSignOut = () => {
+    this.setState({ displayName: null });
+  }
 
   handlePageRender = newPage => {
     this.setState({
@@ -17,14 +26,20 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Nav 
+        <Nav
+          displayName={this.state.displayName}
+          doSignOut={this.doSignOut} 
           handlePageRender={this.handlePageRender} 
           pageRendered={this.state.renderPage}
         />
         {this.state.renderPage === 'Timeline' ? (
           <Timeline />
         ) : (
-          <AddMessage handlePageRender={this.handlePageRender} />
+          <AddMessage 
+            displayName={this.state.displayName}
+            handlePageRender={this.handlePageRender} 
+            doAddDisplayName={this.doAddDisplayName}  
+          />
         )}
       </div>
     );
