@@ -15,7 +15,7 @@ const NavTemplate = props => {
         </NavbarBrand>
 
         {
-          (props.displayName !== null)
+          (props.displayName)
             ? <Nav pills>
                 <NavItem className='mr-3'>
                   <NavLink
